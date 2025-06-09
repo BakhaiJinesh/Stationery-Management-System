@@ -1,0 +1,33 @@
+﻿@model Stationery_Management_System.Product
+
+<h1>Edit Product</h1>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label>Name</label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label>Price</label>
+        <input asp-for="Price" />
+    </div>
+    <div>
+        <label>Quantity</label>
+        <input asp-for="Quantity" />
+    </div>
+    <div>
+        <label>Current Image</label><br />
+        @if (!string.IsNullOrEmpty(Model.ImagePath))
+        {
+            <img src="@Model.ImagePath" width="150" />
+        }
+    </div>
+    <div>
+        <label>Change Image</label>
+        <input type="file" name="ImageFile" />
+    </div>
+    <button type="submit">Save</button>
+</form>
+
+<a href="@Url.Action("Index")">Back to List</a>
